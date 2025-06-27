@@ -1,0 +1,85 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+set number relativenumber
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set ignorecase
+set smartcase
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+set functiontextobj
+
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+" Enable relative line numbers (you need to also enable it in IDEA settings)
+set relativenumber
+
+" Set leader key to space
+let mapleader = " "
+
+" Center cursor after half-page scroll
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Go to next/previous diagnostic (similar to marker navigation)
+nnoremap ]d :action GotoNextError<CR>
+nnoremap [d :action GotoPreviousError<CR>
+
+" Navigate between splits
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+" Switch tabs (editors)
+nnoremap <leader>n :action NextTab<CR>
+nnoremap <leader>p :action PreviousTab<CR>
+
+" Split editor
+nnoremap <leader>vs :action SplitVertically<CR>
+nnoremap <leader>hs :action SplitHorizontally<CR>
+
+" Move editor to other split
+nnoremap <leader>ml :action MoveTabRight<CR>
+nnoremap <leader>mh :action MoveTabLeft<CR>
+
+" Close active editor
+nnoremap <leader>c :action CloseContent<CR>
+
+" Switch to previous file (like Ctrl-^ in Vim)
+nnoremap <leader>f <C-^>
+
+" Exit insert mode with jk or kj
+inoremap jk <Esc>
+inoremap kj <Esc>
+
+map gh <Action>(ShowHoverInfo)
